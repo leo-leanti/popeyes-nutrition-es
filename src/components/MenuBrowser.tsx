@@ -6,6 +6,7 @@ import Link from "next/link";
 import { CATEGORIES, type Category, type Item } from "@/data/menu";
 import {
   type Basis,
+  dataWarnings,
   fixed,
   fold,
   imageUrl,
@@ -327,6 +328,7 @@ function ItemRow({ item, basis }: { item: Item; basis: Basis }) {
   const unit = unitFor(item);
   const hasData = n.kcal !== null;
   const description = usefulDescription(item.description, item.name);
+  const flagged = dataWarnings(item.nutrition).length > 0;
 
   return (
     <li className="border-b border-rule">
@@ -347,8 +349,17 @@ function ItemRow({ item, basis }: { item: Item; basis: Basis }) {
         </div>
 
         <div className="min-w-0 flex-1">
-          <p className="truncate text-[0.95rem] font-semibold text-ink group-hover:text-flame-deep">
+          <p className="flex items-center gap-1.5 truncate text-[0.95rem] font-semibold text-ink group-hover:text-flame-deep">
             {item.name}
+            {flagged ? (
+              <span
+                title="La ficha oficial es inconsistente en esta fila"
+                aria-label="Datos inconsistentes en la ficha oficial"
+                className="figure shrink-0 border border-rule-strong px-1 text-[0.6rem] font-medium text-ink-faint"
+              >
+                ?
+              </span>
+            ) : null}
           </p>
           {description ? (
             <p className="truncate text-[0.78rem] text-ink-faint">

@@ -11,6 +11,7 @@ import {
   type Item,
 } from "@/data/menu";
 import {
+  dataWarnings,
   fixed,
   imageUrl,
   int,
@@ -61,6 +62,7 @@ export default async function ProductPage({
   const total = item.nutrition;
   const hasData = total.kcal !== null;
   const description = usefulDescription(item.description, item.name);
+  const warnings = dataWarnings(total);
 
   const siblings =
     CATEGORIES.find((c) => c.slug === item.categorySlug)?.items.filter(
@@ -146,6 +148,31 @@ export default async function ProductPage({
               ficha Ed.02 de marzo de 2025.
             </p>
           )}
+
+          {warnings.length > 0 ? (
+            <section className="mt-6 border border-ink bg-flame-wash p-4">
+              <h2 className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-flame-deep">
+                Ojo con estas cifras
+              </h2>
+              <p className="mt-2 text-[0.85rem] leading-relaxed text-ink">
+                La ficha oficial es inconsistente en esta fila:
+              </p>
+              <ul className="mt-2 space-y-1.5">
+                {warnings.map((w) => (
+                  <li
+                    key={w}
+                    className="text-[0.85rem] leading-relaxed text-ink-soft"
+                  >
+                    {w}
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-3 text-[0.78rem] leading-relaxed text-ink-faint">
+                Se muestran los valores publicados, sin corregir. Tómalos como
+                orientativos.
+              </p>
+            </section>
+          ) : null}
 
           <section className="mt-10">
             <h2 className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink-faint">

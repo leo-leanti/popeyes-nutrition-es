@@ -90,12 +90,19 @@ export default function MethodPage() {
           <H2>Erratas de la ficha original</H2>
           <p>
             Los valores se reproducen tal cual aparecen publicados, sin
-            corregirlos. Conviene saber que la ficha contiene algunas
-            inconsistencias evidentes: en las tiras crujientes de 2 y 3 piezas
-            el sodio figura como 0,6 y 0,9 mg, cuando el patrón de la tabla
-            apunta a gramos mal etiquetados; y en el Kit Kat Shake las grasas
-            (2,5 g) son menores que las saturadas (12,9 g), lo que es
-            imposible.
+            corregirlos. La ficha contiene varias filas internamente
+            imposibles, y cada producto afectado lo avisa en su página con la
+            marca <Mark>?</Mark>.
+          </p>
+          <p>
+            Las seis <Cite>Piezas Picantes</Cite> declaran más grasa saturada
+            que grasa total, y sus macronutrientes suman alrededor de un 40 %
+            menos de las calorías indicadas. El <Cite>Pop Cream Kit Kat</Cite> y
+            el <Cite>Kit Kat Shake</Cite> declaran más azúcares que hidratos de
+            carbono. En <Cite>The Chicken Cheese</Cite>, los kJ y las kcal no se
+            corresponden. En las tiras crujientes de 2 y 3 piezas el sodio
+            figura como 0,6 y 0,9 mg, cuando el patrón de la tabla apunta a
+            gramos mal etiquetados.
           </p>
           <p>
             Se ha preferido mostrar el dato original antes que inventar una
@@ -144,4 +151,12 @@ function H2({ children }: { children: React.ReactNode }) {
 
 function Cite({ children }: { children: React.ReactNode }) {
   return <span className="font-medium text-ink">{children}</span>;
+}
+
+function Mark({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="figure border border-rule-strong px-1 text-[0.7rem] text-ink-faint">
+      {children}
+    </span>
+  );
 }

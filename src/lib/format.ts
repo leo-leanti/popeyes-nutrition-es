@@ -120,3 +120,52 @@ export function usefulDescription(
   const n = fold(name).trim();
   return d === n ? null : description;
 }
+
+/**
+ * The published sheet contains a handful of internally impossible rows
+ * (saturated fat above total fat, sugars above carbohydrates, kJ and kcal that
+ * disagree). We reproduce the official figures rather than invent corrections,
+ * so flag the affected rows instead of quietly passing them off as sound.
+ */
+export function dataWarnings(n: Nutrition): string[] {
+  const w: string[] = [];
+
+  if (n.grasas !== null && n.saturadas !== null && n.saturadas > n.grasas) {
+    w.push(
+      "Las grasas saturadas figuran por encima de las grasas totales, lo que no es posible.",
+    );
+  }
+
+  if (n.hidratos !== null && n.azucares !== null && n.azucares > n.hidratos) {
+    w.push(
+      "Los azúcares figuran por encima de los hidratos de carbono, lo que no es posible.",
+    );
+  }
+
+  if (n.kj !== null && n.kcal) {
+    const ratio = n.kj / n.kcal;
+    if (ratio < 3.9 || ratio > 4.5) {
+      w.push(
+        "Los kJ y las kcal no se corresponden entre sí (1 kcal equivale a 4,184 kJ).",
+      );
+    }
+  }
+
+  if (
+    n.grasas !== null &&
+    n.hidratos !== null &&
+    n.proteinas !== null &&
+    n.kcal
+  ) {
+    const derived = 9 * n.grasas + 4 * n.hidratos + 4 * n.proteinas;
+    if (Math.abs(derived - n.kcal) / n.kcal > 0.35) {
+      w.push(
+        `Los macronutrientes suman unas ${Math.round(
+          derived,
+        )} kcal, lejos de las ${n.kcal} kcal declaradas.`,
+      );
+    }
+  }
+
+  return w;
+}
