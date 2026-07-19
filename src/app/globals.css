@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  /* Warm paper neutrals, every one tinted toward the brand hue. */
+  --color-paper: oklch(0.977 0.006 75);
+  --color-paper-deep: oklch(0.951 0.009 74);
+  --color-surface: oklch(0.995 0.003 75);
+  --color-ink: oklch(0.22 0.012 60);
+  --color-ink-soft: oklch(0.475 0.014 62);
+  --color-ink-faint: oklch(0.635 0.012 66);
+  --color-rule: oklch(0.885 0.009 70);
+  --color-rule-strong: oklch(0.78 0.012 68);
+
+  --color-flame: oklch(0.678 0.186 45);
+  --color-flame-deep: oklch(0.515 0.155 42);
+  --color-flame-wash: oklch(0.955 0.033 72);
+
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-figure: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7rem;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Figures line up in columns; that is the whole point of this site. */
+.figure {
+  font-family: var(--font-figure);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+::selection {
+  background: var(--color-flame);
+  color: var(--color-surface);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-flame-deep);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
