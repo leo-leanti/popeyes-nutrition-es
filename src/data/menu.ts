@@ -1,8 +1,7 @@
-// AUTO-GENERADO. Fuente: "Información Nutricional Ed.02 - Marzo 2025" y
-// "Información de Alérgenos Ed.02 - Junio 2023" (Popeyes España).
-// Imágenes y descripciones: catálogo oficial de producto de popeyes.es.
-
-export type Level = "contiene" | "puede";
+// AUTO-GENERADO. Fuente de los valores: "Información Nutricional Ed.02, marzo 2025"
+// (Popeyes España). Imágenes y descripciones: catálogo público de popeyes.es.
+// Los ingredientes principales se derivan de la descripción oficial de cada
+// producto; Popeyes no publica declaraciones completas de ingredientes.
 
 export type Nutrition = {
   peso: number | null;
@@ -25,51 +24,34 @@ export type Item = {
   categorySlug: string;
   description: string | null;
   image: string | null;
+  ingredients: string[];
   nutrition: Nutrition;
-  allergens: Partial<Record<AllergenKey, Level>>;
 };
 
 export type Category = {
   name: string;
   slug: string;
   blurb: string;
+  image: string | null;
   items: Item[];
 };
-
-export const ALLERGENS = {
-  leche: "Leche",
-  huevos: "Huevos",
-  pescado: "Pescado",
-  cacahuetes: "Cacahuetes",
-  frutosCascara: "Frutos de cáscara",
-  soja: "Soja",
-  crustaceos: "Crustáceos",
-  moluscos: "Moluscos",
-  gluten: "Gluten",
-  sesamo: "Sésamo",
-  sulfitos: "Sulfitos",
-  apio: "Apio",
-  mostaza: "Mostaza",
-  altramuces: "Altramuces",
-} as const;
-
-export type AllergenKey = keyof typeof ALLERGENS;
 
 export const CATEGORIES: Category[] = [
   {
     name: "Piezas Clásicas",
     slug: "piezas-clasicas",
-    blurb: "Pollo crujiente marinado 12 h, la receta original.",
+    blurb: "Pollo marinado 12 h y rebozado a mano. La receta original de Louisiana.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/bb9e479a51381a6accede30bb684f2390ab2dfd8-2000x1333.png",
     items: [
       {
         id: "piezas-clasicas-1-pieza",
         name: "1 Pieza",
         category: "Piezas Clásicas",
         categorySlug: "piezas-clasicas",
-        description: "1 Pieza",
+        description: null,
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/7954bf38972a7094f33c821b4275725cd66f10fe-2000x1333.png",
+        ingredients: ["Pollo", "Harina de trigo", "Huevo", "Especias Louisiana", "Mostaza", "Aceite vegetal"],
         nutrition: { peso: 145, kj: 1517, kcal: 364, grasas: 21.9, saturadas: 5.0, hidratos: 11.8, azucares: 0.7, fibra: 1.6, proteinas: 28.2, sal: 2.5, sodio: 400 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "piezas-clasicas-2-piezas",
@@ -78,8 +60,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "piezas-clasicas",
         description: "2 piezas clásicas de pollo crujiente",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/e58f60c2ce0da806d041c71f265d0d9d4b90eaa2-1536x1023.png",
+        ingredients: ["Pollo", "Harina de trigo", "Huevo", "Especias Louisiana", "Mostaza", "Aceite vegetal"],
         nutrition: { peso: 291, kj: 3034, kcal: 728, grasas: 43.7, saturadas: 10.1, hidratos: 23.6, azucares: 1.5, fibra: 3.2, proteinas: 56.3, sal: 5.0, sodio: 1000 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "piezas-clasicas-3-piezas",
@@ -88,8 +70,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "piezas-clasicas",
         description: "3 Piezas de pollo crujiente clásicas",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/916b46aeff9c4488911fcbb4c518808556e932ea-2000x1333.png",
+        ingredients: ["Pollo", "Harina de trigo", "Huevo", "Especias Louisiana", "Mostaza", "Aceite vegetal"],
         nutrition: { peso: 436, kj: 4551, kcal: 1092, grasas: 65.6, saturadas: 15.1, hidratos: 35.7, azucares: 2.2, fibra: 4.8, proteinas: 84.4, sal: 7.5, sodio: 2000 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "piezas-clasicas-6-piezas",
@@ -98,8 +80,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "piezas-clasicas",
         description: "6 piezas de pollo crujiente clásicas",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/2145a4bb6b8a57b87ad6f4ef6dcb0811c51947d0-1536x1023.png",
+        ingredients: ["Pollo", "Harina de trigo", "Huevo", "Especias Louisiana", "Mostaza", "Aceite vegetal"],
         nutrition: { peso: 873, kj: 9103, kcal: 2183, grasas: 131.1, saturadas: 30.2, hidratos: 70.7, azucares: 4.4, fibra: 9.6, proteinas: 168.9, sal: 15.1, sodio: 3000 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "piezas-clasicas-9-piezas",
@@ -108,8 +90,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "piezas-clasicas",
         description: "9 piezas clásicas de pollo crujiente",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/7698d7f66c975d7ecc01e3b01036d4e65d87bf57-1536x1023.png",
+        ingredients: ["Pollo", "Harina de trigo", "Huevo", "Especias Louisiana", "Mostaza", "Aceite vegetal"],
         nutrition: { peso: 1309, kj: 13654, kcal: 3275, grasas: 196.7, saturadas: 45.3, hidratos: 106.1, azucares: 6.5, fibra: 14.4, proteinas: 253.4, sal: 22.6, sodio: 6040 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "piezas-clasicas-12-piezas",
@@ -118,15 +100,16 @@ export const CATEGORIES: Category[] = [
         categorySlug: "piezas-clasicas",
         description: "12 piezas clásicas de pollo crujiente",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/bb9e479a51381a6accede30bb684f2390ab2dfd8-2000x1333.png",
+        ingredients: ["Pollo", "Harina de trigo", "Huevo", "Especias Louisiana", "Mostaza", "Aceite vegetal"],
         nutrition: { peso: 1745, kj: 18205, kcal: 4367, grasas: 262.3, saturadas: 60.4, hidratos: 141.5, azucares: 8.7, fibra: 19.2, proteinas: 337.9, sal: 30.2, sodio: 9040 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
     ],
   },
   {
     name: "Piezas Picantes",
     slug: "piezas-picantes",
-    blurb: "La misma pieza, con el rebozado picante de Louisiana.",
+    blurb: "La misma pieza con el rebozado picante de cayena.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/39010e6fbc99829c53d0b343d876e223dfdce27d-1284x600.png",
     items: [
       {
         id: "piezas-picantes-1-pieza",
@@ -135,8 +118,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "piezas-picantes",
         description: "1 Pieza Picante",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/ca1c148e44b89f116ae895613e9fd3e7809d4cd1-2000x1333.png",
+        ingredients: ["Pollo", "Harina de trigo", "Huevo", "Especias picantes", "Pimienta de cayena", "Mostaza", "Aceite vegetal"],
         nutrition: { peso: 119, kj: 1194, kcal: 286, grasas: 3.2, saturadas: 3.7, hidratos: 11.3, azucares: 0.6, fibra: 0.6, proteinas: 22.5, sal: 1.8, sodio: 720 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "piezas-picantes-2-piezas",
@@ -145,8 +128,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "piezas-picantes",
         description: "2 piezas picantes de pollo crujiente",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/faafdbbeaf24f53c408e0aef2da7f570e55135ea-1536x1023.png",
+        ingredients: ["Pollo", "Harina de trigo", "Huevo", "Especias picantes", "Pimienta de cayena", "Mostaza", "Aceite vegetal"],
         nutrition: { peso: 238, kj: 2389, kcal: 572, grasas: 6.3, saturadas: 7.5, hidratos: 22.6, azucares: 1.2, fibra: 1.2, proteinas: 45, sal: 3.6, sodio: 1440 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "piezas-picantes-3-piezas",
@@ -155,8 +138,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "piezas-picantes",
         description: "BIC 3 pc Spicy",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/45249b67f6abe6ac05087395f90e40c9d15aad8b-2000x1333.png",
+        ingredients: ["Pollo", "Harina de trigo", "Huevo", "Especias picantes", "Pimienta de cayena", "Mostaza", "Aceite vegetal"],
         nutrition: { peso: 357, kj: 3583, kcal: 858, grasas: 9.5, saturadas: 11.2, hidratos: 33.9, azucares: 1.8, fibra: 1.8, proteinas: 67.5, sal: 5.4, sodio: 2160 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "piezas-picantes-6-piezas",
@@ -165,8 +148,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "piezas-picantes",
         description: "6 piezas picantes de pollo crujiente",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/fa4632642f2b116d86bd57682bd1fb7c3952d1bd-2000x1333.png",
+        ingredients: ["Pollo", "Harina de trigo", "Huevo", "Especias picantes", "Pimienta de cayena", "Mostaza", "Aceite vegetal"],
         nutrition: { peso: 713, kj: 7167, kcal: 1716, grasas: 19, saturadas: 22.4, hidratos: 67.9, azucares: 3.6, fibra: 3.6, proteinas: 135, sal: 10.9, sodio: 4360 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "piezas-picantes-9-piezas",
@@ -175,8 +158,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "piezas-picantes",
         description: "9 piezas picantes de pollo crujiente",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/b19ad85c742f2ff1e09706c7b7300de973fc0fcf-2000x1333.png",
+        ingredients: ["Pollo", "Harina de trigo", "Huevo", "Especias picantes", "Pimienta de cayena", "Mostaza", "Aceite vegetal"],
         nutrition: { peso: 1070, kj: 10749, kcal: 2574, grasas: 28.6, saturadas: 33.6, hidratos: 101.9, azucares: 5.3, fibra: 5.3, proteinas: 202.5, sal: 16.3, sodio: 6520 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "piezas-picantes-12-piezas",
@@ -185,15 +168,16 @@ export const CATEGORIES: Category[] = [
         categorySlug: "piezas-picantes",
         description: "12 piezas picantes de pollo crujiente",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/39010e6fbc99829c53d0b343d876e223dfdce27d-1284x600.png",
+        ingredients: ["Pollo", "Harina de trigo", "Huevo", "Especias picantes", "Pimienta de cayena", "Mostaza", "Aceite vegetal"],
         nutrition: { peso: 1426, kj: 14333, kcal: 3432, grasas: 38.1, saturadas: 44.8, hidratos: 135.8, azucares: 7.1, fibra: 7.1, proteinas: 270, sal: 21.7, sodio: 8680 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
     ],
   },
   {
     name: "Tiras Crujientes",
     slug: "tiras-crujientes",
-    blurb: "Pechuga en tiras, rebozada y crujiente.",
+    blurb: "Pechuga entera en tiras, rebozada y crujiente.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/9409b27319d1a6b0673fb16f713f628fa20eef0e-2000x1333.png",
     items: [
       {
         id: "tiras-crujientes-2-piezas",
@@ -202,8 +186,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "tiras-crujientes",
         description: "2 Tiras crujientes",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/af5557034d558772b8ad294888257d688c61f0ae-2000x1333.png",
+        ingredients: ["Pechuga de pollo", "Harina de trigo", "Huevo", "Leche", "Especias", "Aceite vegetal"],
         nutrition: { peso: 105, kj: 831, kcal: 199, grasas: 8.4, saturadas: 1.1, hidratos: 9.7, azucares: 0.9, fibra: 1.2, proteinas: 20.4, sal: 1.5, sodio: 0.6 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "tiras-crujientes-3-piezas",
@@ -212,8 +196,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "tiras-crujientes",
         description: "3 Tiras crujientes de pechuga de pollo",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/8a32fed0217ca7d3fb1cfd290dacf0fc7ac8ae23-2000x1333.png",
+        ingredients: ["Pechuga de pollo", "Harina de trigo", "Huevo", "Leche", "Especias", "Aceite vegetal"],
         nutrition: { peso: 158, kj: 1250, kcal: 299, grasas: 14.2, saturadas: 1.6, hidratos: 14.5, azucares: 1.3, fibra: 1.8, proteinas: 30.7, sal: 2.2, sodio: 0.9 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "tiras-crujientes-5-piezas",
@@ -222,8 +206,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "tiras-crujientes",
         description: "5 Tiras crujientes de pechuga de pollo",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/ecda703093bda573c5e3b848c820e4e46134a6bc-2000x1333.png",
+        ingredients: ["Pechuga de pollo", "Harina de trigo", "Huevo", "Leche", "Especias", "Aceite vegetal"],
         nutrition: { peso: 263, kj: 2083, kcal: 498, grasas: 21.1, saturadas: 2.7, hidratos: 24.3, azucares: 2.1, fibra: 2.9, proteinas: 51.1, sal: 3.7, sodio: 1450 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "tiras-crujientes-10-piezas",
@@ -232,8 +216,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "tiras-crujientes",
         description: "10 Tiras crujientes de pechuga de pollo",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/f367255f104e4ede675dfd3d6b145fb8bf308fa4-2000x1333.png",
+        ingredients: ["Pechuga de pollo", "Harina de trigo", "Huevo", "Leche", "Especias", "Aceite vegetal"],
         nutrition: { peso: 527, kj: 4166, kcal: 996, grasas: 42.2, saturadas: 5.3, hidratos: 48.5, azucares: 4.2, fibra: 5.8, proteinas: 102.2, sal: 7.4, sodio: 2900 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "tiras-crujientes-15-piezas",
@@ -242,8 +226,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "tiras-crujientes",
         description: "15 Tiras crujientes de pechuga de pollo",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/9409b27319d1a6b0673fb16f713f628fa20eef0e-2000x1333.png",
+        ingredients: ["Pechuga de pollo", "Harina de trigo", "Huevo", "Leche", "Especias", "Aceite vegetal"],
         nutrition: { peso: 790, kj: 6249, kcal: 1493, grasas: 63.2, saturadas: 7.9, hidratos: 72.7, azucares: 6.3, fibra: 8.7, proteinas: 153.3, sal: 11.1, sodio: 4345 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "tiras-crujientes-20-piezas",
@@ -251,16 +235,17 @@ export const CATEGORIES: Category[] = [
         category: "Tiras Crujientes",
         categorySlug: "tiras-crujientes",
         description: "20 Tiras Crujientes de pechuga de pollo",
-        image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/06806e2155ef5859de45279d8e90a40b8108203c-1284x600.png",
+        image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/9409b27319d1a6b0673fb16f713f628fa20eef0e-2000x1333.png",
+        ingredients: ["Pechuga de pollo", "Harina de trigo", "Huevo", "Leche", "Especias", "Aceite vegetal"],
         nutrition: { peso: 1053, kj: 8332, kcal: 1991, grasas: 84.3, saturadas: 10.5, hidratos: 96.9, azucares: 8.4, fibra: 11.6, proteinas: 204.3, sal: 14.7, sodio: 5800 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
     ],
   },
   {
     name: "Las Salsonas",
     slug: "las-salsonas",
-    blurb: "Alitas y tiras bañadas en salsa.",
+    blurb: "Alitas y tiras bañadas en salsa coreana o sweet chilli.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/5d90e83b17ed9b24d3c3bb66fe03a535bb635ed4-2000x1333.png",
     items: [
       {
         id: "las-salsonas-alitas-con-salsa-emmy",
@@ -269,8 +254,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "las-salsonas",
         description: "6 Alitas Emmy",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/32d6d49037bfcbf52e495a5c75c414853c7d7a55-2000x1333.png",
+        ingredients: ["Alitas de pollo", "Salsa coreana Emmy", "Especias picantes", "Harina de trigo", "Huevo"],
         nutrition: { peso: 283, kj: 3473, kcal: 832, grasas: 57.3, saturadas: 13.1, hidratos: 28.3, azucares: 4.8, fibra: 1.4, proteinas: 51.2, sal: 4.4, sodio: 1740 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede" },
       },
       {
         id: "las-salsonas-tiras-con-salsa-emmy",
@@ -279,8 +264,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "las-salsonas",
         description: "3 Tiras Emmy",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/e19f97eb59e1fcbbb5321f3bd97bbadcedef19a9-2000x1333.png",
+        ingredients: ["Pechuga de pollo", "Salsa coreana Emmy", "Harina de trigo", "Huevo", "Leche"],
         nutrition: { peso: 288, kj: 2593, kcal: 620, grasas: 32.4, saturadas: 5.0, hidratos: 29.3, azucares: 5.6, fibra: 3.0, proteinas: 51.5, sal: 4.2, sodio: 1630 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede" },
       },
       {
         id: "las-salsonas-alitas---tiras-con-salsa-emmy",
@@ -289,8 +274,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "las-salsonas",
         description: "5 tiras crujientes de pollo con salsa Emmy (cremosa, picante y ligeramente dulce)",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/377cd8d416a9b7148e47e16f3b7a6c8e3efd5d20-2000x1333.png",
+        ingredients: ["Alitas de pollo", "Pechuga de pollo", "Salsa coreana Emmy", "Harina de trigo", "Huevo"],
         nutrition: { peso: 312, kj: 3241, kcal: 776, grasas: 48.4, saturadas: 9.3, hidratos: 31.2, azucares: 5.4, fibra: 2.5, proteinas: 56.5, sal: 4.6, sodio: 1802 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede" },
       },
       {
         id: "las-salsonas-alitas-con-salsas-mayo-lima---sweet-chilli",
@@ -299,8 +284,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "las-salsonas",
         description: "6 Alitas con una mezcla de salsas de Sweet Chilli & Mayo Lima-Limón.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/5d90e83b17ed9b24d3c3bb66fe03a535bb635ed4-2000x1333.png",
+        ingredients: ["Alitas de pollo", "Salsa mayo lima-limón", "Salsa sweet chilli", "Harina de trigo", "Huevo"],
         nutrition: { peso: 297, kj: 3496, kcal: 837, grasas: 54.7, saturadas: 11.9, hidratos: 35.4, azucares: 11.9, fibra: 1.5, proteinas: 51.1, sal: 4.2, sodio: 1686 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede" },
       },
       {
         id: "las-salsonas-tiras-con-salsas-mayo-lima---sweet-chilli",
@@ -309,8 +294,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "las-salsonas",
         description: "3 Tiras con salsa Mayo Lima & Sweet Chilli",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/472f67f908eb88b6109dee7f38ed1f1909e3379f-2000x1333.png",
+        ingredients: ["Pechuga de pollo", "Salsa mayo lima-limón", "Salsa sweet chilli", "Harina de trigo", "Huevo", "Leche"],
         nutrition: { peso: 302, kj: 2616, kcal: 625, grasas: 29.8, saturadas: 3.8, hidratos: 36.4, azucares: 12.7, fibra: 3.1, proteinas: 51.4, sal: 4.0, sodio: 1576 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede" },
       },
       {
         id: "las-salsonas-alitas---tiras-con-salsas-mayo-lima---sweet-chilli",
@@ -319,35 +304,36 @@ export const CATEGORIES: Category[] = [
         categorySlug: "las-salsonas",
         description: "5 tiras crujientes de pollo con mezcla de salsas Mayo Lima & Sweet Chilli. Crujientes y jugosas con toque dulce-picante; ideales para picotear.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/a11240029809a13f263a731acafca2153ce59485-2000x1333.png",
+        ingredients: ["Alitas de pollo", "Pechuga de pollo", "Salsa mayo lima-limón", "Salsa sweet chilli", "Harina de trigo", "Huevo"],
         nutrition: { peso: 326, kj: 3264, kcal: 781, grasas: 45.8, saturadas: 8.1, hidratos: 38.3, azucares: 12.5, fibra: 2.6, proteinas: 56.4, sal: 4.4, sodio: 1748 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede" },
       },
     ],
   },
   {
     name: "Sandwiches",
     slug: "sandwiches",
-    blurb: "Pollo crujiente en pan brioche.",
+    blurb: "Pollo crujiente en pan brioche o de sésamo.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/daec2517b9290a3a469f6ed4e9ea1aba526ac019-2000x1333.png",
     items: [
       {
         id: "sandwiches-the-chicken-sandwich",
         name: "The Chicken Sandwich",
         category: "Sandwiches",
         categorySlug: "sandwiches",
-        description: "Hamburguesa de pollo crujiente en pan brioche con mayonesa y pepinillos. Crujiente por fuera y jugoso por dentro; el clásico infalible.\n",
+        description: "Hamburguesa de pollo crujiente en pan brioche con mayonesa y pepinillos. Crujiente por fuera y jugoso por dentro; el clásico infalible.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/59b48152148f2368cc57ae96e3b109e02d09be4e-2000x1333.png",
+        ingredients: ["Pollo crujiente", "Pan brioche", "Mayonesa", "Pepinillos"],
         nutrition: { peso: 224, kj: 2388, kcal: 570, grasas: 29.15, saturadas: 3.2, hidratos: 71.6, azucares: 10.1, fibra: 3.6, proteinas: 28.1, sal: 2.6, sodio: 1040 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
       {
         id: "sandwiches-the-chicken-sandwich-picante",
         name: "The Chicken Sandwich Picante",
         category: "Sandwiches",
         categorySlug: "sandwiches",
-        description: "Hamburguesa de pollo crujiente en pan brioche con mayonesa picante y pepinillos. Picante equilibrado, crujiente y jugoso para los que buscan un toque de fuego.\n",
+        description: "Hamburguesa de pollo crujiente en pan brioche con mayonesa picante y pepinillos. Picante equilibrado, crujiente y jugoso para los que buscan un toque de fuego.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/162d02712297fdbe18fbd83d798d827a8c03667e-2000x1333.png",
+        ingredients: ["Pollo crujiente", "Pan brioche", "Mayonesa picante", "Pepinillos"],
         nutrition: { peso: 224, kj: 2403, kcal: 574, grasas: 29.3, saturadas: 4.0, hidratos: 71.7, azucares: 10.2, fibra: 3.5, proteinas: 28.5, sal: 2.7, sodio: 1080 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
       {
         id: "sandwiches-the-bacon-bbq",
@@ -356,58 +342,58 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches",
         description: "Hamburguesa de pollo crujiente en pan brioche con bacon bits, salsa Mayo Bacon, cebolla frita y tomate. Hecha con cariño para los amantes del bacon.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/fbf13af8770fc850fc4a75948180067b7a343087-2000x1333.png",
+        ingredients: ["Pollo crujiente", "Pan brioche", "Bacon", "Salsa mayo bacon", "Cebolla frita", "Tomate"],
         nutrition: { peso: 227, kj: 2101, kcal: 502, grasas: 16.3, saturadas: 4.8, hidratos: 78.7, azucares: 15.9, fibra: 3.5, proteinas: 32.2, sal: 3.4, sodio: 1360 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "contiene", sesamo: "puede" },
       },
       {
         id: "sandwiches-the-extra-bacon-bbq",
         name: "The Extra Bacon BBQ",
         category: "Sandwiches",
         categorySlug: "sandwiches",
-        description: "Doble hamburguesa de pollo crujiente en pan brioche con salsa BBQ, queso cheddar y bacon. Doble jugosidad con toque ahumado.\n",
+        description: "Doble hamburguesa de pollo crujiente en pan brioche con salsa BBQ, queso cheddar y bacon. Doble jugosidad con toque ahumado.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/55d9410556e73deb27d1cd47212bd5ab1c6a3ed5-2000x1333.png",
+        ingredients: ["Doble pollo crujiente", "Pan brioche", "Salsa BBQ", "Queso cheddar", "Bacon"],
         nutrition: { peso: 340, kj: 2979, kcal: 711, grasas: 26.0, saturadas: 6.3, hidratos: 113.2, azucares: 16.4, fibra: 4.1, proteinas: 52.5, sal: 4.6, sodio: 1840 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "contiene", sesamo: "puede" },
       },
       {
         id: "sandwiches-the-cheesy-crush",
         name: "The Cheesy Crush",
         category: "Sandwiches",
         categorySlug: "sandwiches",
-        description: "The Cheesy Crush",
+        description: null,
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/a726be3f197fcb97031b45e090fae13d81fae642-2000x1333.png",
+        ingredients: ["Pollo crujiente", "Pan brioche", "Salsa de queso cheddar cajún", "Queso cheddar", "Cebolla crujiente", "Bacon"],
         nutrition: { peso: 251, kj: 2457, kcal: 587, grasas: 25.8, saturadas: 10.2, hidratos: 76.1, azucares: 11.2, fibra: 3.9, proteinas: 35.8, sal: 3.6, sodio: 1440 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
       {
         id: "sandwiches-the-extra-cheesy-crush",
         name: "The Extra Cheesy Crush",
         category: "Sandwiches",
         categorySlug: "sandwiches",
-        description: "Doble hamburguesa de pollo crujiente en pan brioche con salsa de queso cheddar cajún, loncha de queso cheddar, cebolla crujiente y bacon. Doble de pollo, extra de cremosidad y crunch.\n",
+        description: "Doble hamburguesa de pollo crujiente en pan brioche con salsa de queso cheddar cajún, loncha de queso cheddar, cebolla crujiente y bacon. Doble de pollo, extra de cremosidad y crunch.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/daec2517b9290a3a469f6ed4e9ea1aba526ac019-2000x1333.png",
+        ingredients: ["Doble pollo crujiente", "Pan brioche", "Salsa de queso cheddar cajún", "Queso cheddar", "Cebolla crujiente", "Bacon"],
         nutrition: { peso: 364, kj: 3335, kcal: 796, grasas: 35.4, saturadas: 11.6, hidratos: 110.6, azucares: 11.7, fibra: 4.5, proteinas: 56.1, sal: 4.8, sodio: 1920 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
       {
         id: "sandwiches-the-chick-n-wrap",
         name: "The Chick'n Wrap",
         category: "Sandwiches",
         categorySlug: "sandwiches",
-        description: "Wrap de pollo crujiente con queso cheddar, cebolla crujiente, lechuga, tomate y mayonesa. Fresco y con buen crunch; ideal para comer fácil y con sabor.\n",
+        description: "Wrap de pollo crujiente con queso cheddar, cebolla crujiente, lechuga, tomate y mayonesa. Fresco y con buen crunch; ideal para comer fácil y con sabor.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/bbba2bc2c53dbb6aeb8bcf6ebec715c855a37ebb-2000x1333.png",
+        ingredients: ["Pollo crujiente", "Tortilla de trigo", "Queso cheddar", "Cebolla crujiente", "Lechuga", "Tomate", "Mayonesa"],
         nutrition: { peso: 261, kj: 2531, kcal: 605, grasas: 31.2, saturadas: 9.1, hidratos: 76.2, azucares: 9.1, fibra: 2.8, proteinas: 28.2, sal: 2.9, sodio: 1160 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "contiene" },
       },
       {
         id: "sandwiches-the-soul",
         name: "The Soul",
         category: "Sandwiches",
         categorySlug: "sandwiches",
-        description: "The Soul",
+        description: null,
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/a726be3f197fcb97031b45e090fae13d81fae642-2000x1333.png",
+        ingredients: ["Pollo crujiente", "Pan brioche", "Queso cheddar", "Cebolla crujiente", "Mayonesa"],
         nutrition: { peso: 250, kj: 2566, kcal: 613, grasas: 33.6, saturadas: 5.9, hidratos: 70.2, azucares: 8.5, fibra: 3.7, proteinas: 31.5, sal: 2.4, sodio: 960 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
       {
         id: "sandwiches-the-jazzy-bacon",
@@ -416,18 +402,18 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches",
         description: "Hamburguesa de pan brioche con salsa mayo bacon, bits de bacon, cebolla crujiente, queso cheddar y salsa bourbon sobre nuestro pollo crujiente.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/273c9c1aa009832716629dd3efaf7306a273c1dd-2000x1333.png",
+        ingredients: ["Pollo crujiente", "Pan brioche", "Salsa mayo bacon", "Bacon", "Cebolla crujiente", "Queso cheddar", "Salsa bourbon"],
         nutrition: { peso: 231, kj: 2745, kcal: 623, grasas: 35.7, saturadas: 10.6, hidratos: 76.4, azucares: 15.3, fibra: 2.1, proteinas: 31.2, sal: 3.1, sodio: 759 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
       {
         id: "sandwiches-the-chicken-classic",
         name: "The Chicken Classic",
         category: "Sandwiches",
         categorySlug: "sandwiches",
-        description: "The Chicken Classic",
+        description: null,
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/1ad73dbffd77017fbe7de849218a03eea00a848e-2000x1333.png",
+        ingredients: ["Pechuga de pollo crujiente", "Pan de sésamo", "Lechuga", "Mayonesa"],
         nutrition: { peso: 147, kj: 1796, kcal: 429, grasas: 25.2, saturadas: 3.7, hidratos: 32.8, azucares: 5.5, fibra: 2.5, proteinas: 16.8, sal: 2.1, sodio: 845 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "contiene" },
       },
       {
         id: "sandwiches-the-chicken-bbq",
@@ -436,8 +422,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches",
         description: "Hamburguesa de pan de sésamo con filete crujiente 100% pechuga de pollo, lechuga y salsa BBQ",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/09c5939192e393aea1158dc615a02e66175106ed-2000x1333.png",
+        ingredients: ["Pechuga de pollo crujiente", "Pan de sésamo", "Lechuga", "Salsa BBQ"],
         nutrition: { peso: 131, kj: 1171, kcal: 279, grasas: 7.0, saturadas: 2.6, hidratos: 36.3, azucares: 8.5, fibra: 2.2, proteinas: 16.7, sal: 1.9, sodio: 940 },
-        allergens: { leche: "puede", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "contiene", sesamo: "contiene" },
       },
       {
         id: "sandwiches-the-chicken-cheese",
@@ -446,8 +432,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches",
         description: "Hamburguesa de pan de sésamo con filete crujiente 100% pechuga de pollo, queso cheddar, lechuga y mayonesa",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/6c11881f49d79258efc9652ab799e0cfeb439f29-2000x1333.png",
+        ingredients: ["Pechuga de pollo crujiente", "Pan de sésamo", "Queso cheddar", "Lechuga", "Mayonesa"],
         nutrition: { peso: 160, kj: 1372, kcal: 477, grasas: 29.5, saturadas: 6.3, hidratos: 32.8, azucares: 5.5, fibra: 2.5, proteinas: 20, sal: 2.1, sodio: 958 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "contiene" },
       },
       {
         id: "sandwiches-the-doble-chicken-classic",
@@ -456,8 +442,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches",
         description: "Doble hamburguesa en pan de sésamo con filete crujiente 100% pechuga de pollo, lechuga y mayonesa",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/44475b0d4f36cfecea93479f3f7875d4c574e3c7-2000x1333.png",
+        ingredients: ["Doble pechuga de pollo crujiente", "Pan de sésamo", "Lechuga", "Mayonesa"],
         nutrition: { peso: 202, kj: 2259, kcal: 538, grasas: 30.0, saturadas: 5.5, hidratos: 37.8, azucares: 5.8, fibra: 3.1, proteinas: 28.4, sal: 3.0, sodio: 1515 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
       {
         id: "sandwiches-the-doble-chicken-cheese",
@@ -466,15 +452,16 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches",
         description: "Hamburguesa doble de pan jugoso con filete crujiente 100% pechuga de pollo, queso cheddar, lechuga y mayonesa",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/596f0f37a7c9311b0c45369d086f9f43e24a4f1e-2000x1333.png",
+        ingredients: ["Doble pechuga de pollo crujiente", "Pan de sésamo", "Queso cheddar", "Lechuga", "Mayonesa"],
         nutrition: { peso: 214, kj: 2463, kcal: 587, grasas: 34.2, saturadas: 8.2, hidratos: 37.8, azucares: 5.8, fibra: 3.1, proteinas: 31.7, sal: 3.1, sodio: 1358 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
     ],
   },
   {
     name: "Sandwiches Grill",
     slug: "sandwiches-grill",
-    blurb: "Los mismos sandwiches, con pollo a la plancha.",
+    blurb: "Los mismos sandwiches con el pollo a la plancha.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/5b9cf0f6125ee6c6f0cdb58640935cb219c73afd-870x554.png",
     items: [
       {
         id: "sandwiches-grill-the-chicken-sandwich",
@@ -483,8 +470,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches-grill",
         description: "Hamburguesa de pan brioche con filete de pollo a la plancha, mayonesa y pepinillos",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/92c5bd7f3666af269df4764a14a0a82cad8dcd04-2000x1333.png",
+        ingredients: ["Filete de pollo a la plancha", "Pan brioche", "Mayonesa", "Pepinillos"],
         nutrition: { peso: 197, kj: 1914, kcal: 456, grasas: 21.1, saturadas: 2.3, hidratos: 43.6, azucares: 10.1, fibra: 3.4, proteinas: 21.4, sal: 2.9, sodio: 1160 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
       {
         id: "sandwiches-grill-the-chicken-sandwich-picante",
@@ -493,8 +480,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches-grill",
         description: "Hamburguesa de pan brioche con filete de pollo a la plancha, mayonesa picante y pepinillos",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/624ebad9fcee69ef80b37b5b6e8dc5eda03b34f1-2000x1333.png",
+        ingredients: ["Filete de pollo a la plancha", "Pan brioche", "Mayonesa picante", "Pepinillos"],
         nutrition: { peso: 197, kj: 1929, kcal: 460, grasas: 21.3, saturadas: 3.1, hidratos: 43.7, azucares: 10.2, fibra: 3.3, proteinas: 21.8, sal: 2.9, sodio: 1160 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
       {
         id: "sandwiches-grill-the-bacon-bbq",
@@ -503,8 +490,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches-grill",
         description: "Hamburguesa de pan brioche con filete de pollo a la plancha, salsa BBQ, queso Cheddar y bacon",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/ffecbc4c7e7a27d331faf2951ef5e4a29b534f8e-2000x1333.png",
+        ingredients: ["Filete de pollo a la plancha", "Pan brioche", "Salsa BBQ", "Queso cheddar", "Bacon"],
         nutrition: { peso: 200, kj: 1626, kcal: 388, grasas: 8.3, saturadas: 3.9, hidratos: 50.7, azucares: 15.9, fibra: 3.4, proteinas: 25.5, sal: 3.7, sodio: 1480 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "contiene", sesamo: "puede" },
       },
       {
         id: "sandwiches-grill-the-extra-bacon-bbq",
@@ -513,8 +500,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches-grill",
         description: "Hamburguesa de pan brioche con dos filetes de pollo a la plancha, salsa BBQ, queso Cheddar y bacon",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/d769059c2f124082a3ff10e843ab26c2fa0b1fff-2000x1333.png",
+        ingredients: ["Doble filete de pollo a la plancha", "Pan brioche", "Salsa BBQ", "Queso cheddar", "Bacon"],
         nutrition: { peso: 286, kj: 2030, kcal: 483, grasas: 9.8, saturadas: 4.5, hidratos: 57.2, azucares: 16.5, fibra: 3.8, proteinas: 39.1, sal: 5.1, sodio: 2040 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "contiene", sesamo: "puede" },
       },
       {
         id: "sandwiches-grill-the-cheesy-crush",
@@ -523,8 +510,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches-grill",
         description: "The Cheesy Crush Grill",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/a726be3f197fcb97031b45e090fae13d81fae642-2000x1333.png",
+        ingredients: ["Filete de pollo a la plancha", "Pan brioche", "Salsa de queso cajún", "Queso cheddar", "Cebolla crujiente", "Bacon"],
         nutrition: { peso: 224, kj: 1982, kcal: 473, grasas: 17.7, saturadas: 9.3, hidratos: 48.1, azucares: 11.2, fibra: 3.7, proteinas: 29.1, sal: 3.9, sodio: 1560 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
       {
         id: "sandwiches-grill-the-extra-cheesy-crush",
@@ -533,8 +520,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches-grill",
         description: "Hamburguesa de pan brioche con dos filetes de pollo a la plancha, salsa queso cajún, queso Cheddar, cebolla crujiente y bacon.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/5b9cf0f6125ee6c6f0cdb58640935cb219c73afd-870x554.png",
+        ingredients: ["Doble filete de pollo a la plancha", "Pan brioche", "Salsa de queso cajún", "Queso cheddar", "Cebolla crujiente", "Bacon"],
         nutrition: { peso: 310, kj: 2386, kcal: 568, grasas: 19.3, saturadas: 9.9, hidratos: 54.6, azucares: 11.7, fibra: 4.1, proteinas: 42.7, sal: 5.3, sodio: 2120 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
       {
         id: "sandwiches-grill-the-chick-n-wrap",
@@ -543,18 +530,18 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches-grill",
         description: "Wrap de filete de pollo a la plancha, queso Cheddar, cebolla crujiente, lechuga, tomate y mayonesa",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/c3896c3938ad033b0de5956d91f507d3e35af90f-2000x1333.png",
+        ingredients: ["Filete de pollo a la plancha", "Tortilla de trigo", "Queso cheddar", "Cebolla crujiente", "Lechuga", "Tomate", "Mayonesa"],
         nutrition: { peso: 234, kj: 2057, kcal: 490, grasas: 23.2, saturadas: 8.2, hidratos: 48.2, azucares: 9.1, fibra: 2.7, proteinas: 21.5, sal: 3.2, sodio: 1280 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "contiene" },
       },
       {
         id: "sandwiches-grill-the-soul",
         name: "The Soul",
         category: "Sandwiches Grill",
         categorySlug: "sandwiches-grill",
-        description: "The Soul",
+        description: null,
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/a726be3f197fcb97031b45e090fae13d81fae642-2000x1333.png",
+        ingredients: ["Filete de pollo a la plancha", "Pan brioche", "Queso cheddar", "Cebolla crujiente", "Mayonesa"],
         nutrition: { peso: 223, kj: 2091, kcal: 499, grasas: 25.5, saturadas: 5.0, hidratos: 42.2, azucares: 8.5, fibra: 3.5, proteinas: 24.8, sal: 2.7, sodio: 1080 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
       {
         id: "sandwiches-grill-the-jazzy-bacon",
@@ -563,15 +550,16 @@ export const CATEGORIES: Category[] = [
         categorySlug: "sandwiches-grill",
         description: "Hamburguesa de pan brioche con salsa mayo bacon, bits de bacon, cebolla crujiente, queso cheddar y salsa bourbon sobre nuestro filete de pollo a la plancha.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/2e7bc41123b27fd266a9b3d8a109c5b7a9a3b0d5-2000x1333.png",
+        ingredients: ["Filete de pollo a la plancha", "Pan brioche", "Salsa mayo bacon", "Bacon", "Cebolla crujiente", "Queso cheddar", "Salsa bourbon"],
         nutrition: { peso: 204, kj: 2271, kcal: 541, grasas: 27.6, saturadas: 9.7, hidratos: 48.4, azucares: 15.4, fibra: 1.9, proteinas: 24.5, sal: 3.3, sodio: 1359 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene", soja: "puede", sesamo: "puede" },
       },
     ],
   },
   {
     name: "Alitas Picantes",
     slug: "alitas-picantes",
-    blurb: "Alitas jugosas, sin rebozado.",
+    blurb: "Alitas jugosas y sin rebozado.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/3d67e9182c7c3cc36817238f87261fa94ddf4460-2000x1333.png",
     items: [
       {
         id: "alitas-picantes-3-alitas",
@@ -580,8 +568,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "alitas-picantes",
         description: "3 Alitas de pollo picantes. Jugosas y sin rebozado, perfectas para añadir a tu menú.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/40a32b199ee12d56174d44ff41e8f0bd7ab75821-2000x1333.png",
+        ingredients: ["Alitas de pollo", "Especias picantes", "Harina de trigo", "Huevo", "Mostaza"],
         nutrition: { peso: 129, kj: 1481, kcal: 355, grasas: 22.9, saturadas: 5.4, hidratos: 11.7, azucares: 0.6, fibra: 0.6, proteinas: 25.4, sal: 1.9, sodio: 760 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "alitas-picantes-6-alitas",
@@ -590,8 +578,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "alitas-picantes",
         description: "6 Alitas de pollo picantes. Jugosas y sin rebozado, perfectas para añadir a tu menú.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/64b97b16dca63af2fa494fb4f8a8eca669143672-2000x1333.png",
+        ingredients: ["Alitas de pollo", "Especias picantes", "Harina de trigo", "Huevo", "Mostaza"],
         nutrition: { peso: 258, kj: 2963, kcal: 710, grasas: 46, saturadas: 10.8, hidratos: 23.3, azucares: 1.3, fibra: 1.3, proteinas: 50.8, sal: 3.9, sodio: 1560 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "alitas-picantes-12-alitas",
@@ -600,8 +588,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "alitas-picantes",
         description: "12 Alitas de pollo picantes. Jugosas y sin rebozado, perfectas para añadir a tu menú.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/3d67e9182c7c3cc36817238f87261fa94ddf4460-2000x1333.png",
+        ingredients: ["Alitas de pollo", "Especias picantes", "Harina de trigo", "Huevo", "Mostaza"],
         nutrition: { peso: 516, kj: 5925, kcal: 1421, grasas: 92, saturadas: 21.6, hidratos: 46.7, azucares: 2.6, fibra: 2.6, proteinas: 101.6, sal: 7.7, sodio: 3080 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
     ],
   },
@@ -609,6 +597,7 @@ export const CATEGORIES: Category[] = [
     name: "Nuggets Crujientes",
     slug: "nuggets-crujientes",
     blurb: "Nuggets de pechuga entera.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/8fe901fbd4c2a426d6eabf4c54942c6beb11490d-2000x1333.png",
     items: [
       {
         id: "nuggets-crujientes-4-nuggets",
@@ -617,8 +606,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "nuggets-crujientes",
         description: "4 Real Nuggets Crujientes",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/c984c2168138a5403edf21e9497fa1a29afe5976-2000x1333.png",
+        ingredients: ["Pechuga de pollo", "Harina de trigo", "Huevo", "Leche", "Especias", "Aceite vegetal"],
         nutrition: { peso: 103, kj: 880, kcal: 210, grasas: 8.8, saturadas: 0.9, hidratos: 14, azucares: 3.5, fibra: 1.1, proteinas: 18.6, sal: 1.5, sodio: 600 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "nuggets-crujientes-8-nuggets",
@@ -627,15 +616,16 @@ export const CATEGORIES: Category[] = [
         categorySlug: "nuggets-crujientes",
         description: "9 Nuggets Crujientes",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/8fe901fbd4c2a426d6eabf4c54942c6beb11490d-2000x1333.png",
+        ingredients: ["Pechuga de pollo", "Harina de trigo", "Huevo", "Leche", "Especias", "Aceite vegetal"],
         nutrition: { peso: 205, kj: 1760, kcal: 419, grasas: 17.7, saturadas: 1.8, hidratos: 27.9, azucares: 7.0, fibra: 2.1, proteinas: 37.2, sal: 3.0, sodio: 1200 },
-        allergens: { leche: "contiene", huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
     ],
   },
   {
     name: "Complementos",
     slug: "complementos",
-    blurb: "Patatas, aros, cheese balls y mazorca.",
+    blurb: "Patatas cajún, aros, cheese balls y mazorca.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/663ff25098a1a4fc1b899f9b58cdbe677ad06834-2000x1333.png",
     items: [
       {
         id: "complementos-cajun-fries-pequenas",
@@ -644,8 +634,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "complementos",
         description: "Patatas Cajún Kids",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/6e814059499934b120a3c5db1fda5f21c5bb7fef-2000x1333.png",
+        ingredients: ["Patata", "Especias cajún", "Aceite vegetal"],
         nutrition: { peso: 72, kj: 488, kcal: 117, grasas: 5.9, saturadas: 0.7, hidratos: 11.4, azucares: 0.3, fibra: 4.8, proteinas: 4.5, sal: 0.0, sodio: 100 },
-        allergens: { gluten: "contiene" },
       },
       {
         id: "complementos-cajun-fries-grandes",
@@ -654,8 +644,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "complementos",
         description: "Patatas Cajún Grandes",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/6e814059499934b120a3c5db1fda5f21c5bb7fef-2000x1333.png",
+        ingredients: ["Patata", "Especias cajún", "Aceite vegetal"],
         nutrition: { peso: 100, kj: 678, kcal: 162, grasas: 8.2, saturadas: 1.0, hidratos: 15.8, azucares: 0.4, fibra: 6.7, proteinas: 6.3, sal: 0.0, sodio: 100 },
-        allergens: { gluten: "contiene" },
       },
       {
         id: "complementos-bacon-cheese-fries",
@@ -664,8 +654,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "complementos",
         description: "Patatas fritas cajún cubiertas de queso cheddar y virutas de bacon",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/663ff25098a1a4fc1b899f9b58cdbe677ad06834-2000x1333.png",
+        ingredients: ["Patata", "Queso cheddar", "Bacon", "Especias cajún", "Aceite vegetal"],
         nutrition: { peso: 330, kj: 2467, kcal: 590, grasas: 33.3, saturadas: 8.5, hidratos: 47.5, azucares: 3.6, fibra: 18.8, proteinas: 24.9, sal: 1.7, sodio: 680 },
-        allergens: { leche: "contiene", gluten: "contiene" },
       },
       {
         id: "complementos-mazorca-de-maiz",
@@ -674,8 +664,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "complementos",
         description: "Mazorca de maíz entera, preparada para acompañar; sabor dulce y textura tierna, una opción ligera para tu menú.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/33135ebf80624949cead81105e679a335a486c4c-2000x1333.png",
+        ingredients: ["Maíz", "Sal"],
         nutrition: { peso: 119, kj: 545, kcal: 130, grasas: 2.4, saturadas: 0.5, hidratos: 19.5, azucares: 11, fibra: 8.1, proteinas: 3.6, sal: 0.0, sodio: 0.0 },
-        allergens: { apio: "puede" },
       },
       {
         id: "complementos-onion-rings-5-piezas",
@@ -684,8 +674,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "complementos",
         description: "Aros de cebolla crujientes",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/1dd082209d3a06d892f33eaa59a3afda19a37ce0-1284x600.png",
+        ingredients: ["Cebolla", "Harina de trigo", "Aceite vegetal"],
         nutrition: { peso: 60, kj: 522, kcal: 125, grasas: 5.5, saturadas: 0.6, hidratos: 15.8, azucares: 1.6, fibra: 1.3, proteinas: 2.4, sal: 0.6, sodio: 240 },
-        allergens: { gluten: "contiene" },
       },
       {
         id: "complementos-onion-rings-8-piezas",
@@ -694,28 +684,28 @@ export const CATEGORIES: Category[] = [
         categorySlug: "complementos",
         description: "Aros de cebolla rebozados y fritos; crujientes y dorados, ideales para acompañar.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/cbaa7eaa0a545364fffe1e865e35b1a39d757e57-2000x1333.png",
+        ingredients: ["Cebolla", "Harina de trigo", "Aceite vegetal"],
         nutrition: { peso: 96, kj: 836, kcal: 200, grasas: 8.7, saturadas: 0.9, hidratos: 25.3, azucares: 2.6, fibra: 2.0, proteinas: 3.9, sal: 0.9, sodio: 360 },
-        allergens: { gluten: "contiene" },
       },
       {
         id: "complementos-onion-rings-16-piezas",
         name: "Onion Rings 16 Piezas",
         category: "Complementos",
         categorySlug: "complementos",
-        description: "Aros de cebolla rebozados y fritos; crujientes y dorados, ideales para acompañar.\n",
+        description: "Aros de cebolla rebozados y fritos; crujientes y dorados, ideales para acompañar.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/1ba2dbf2375338cc4c61d4182a37735c855cb744-2000x1333.png",
+        ingredients: ["Cebolla", "Harina de trigo", "Aceite vegetal"],
         nutrition: { peso: 192, kj: 1671, kcal: 399, grasas: 17.5, saturadas: 1.8, hidratos: 50.7, azucares: 5.2, fibra: 4.1, proteinas: 7.7, sal: 1.8, sodio: 720 },
-        allergens: { gluten: "contiene" },
       },
       {
         id: "complementos-petalos-de-cebolla",
         name: "Pétalos de Cebolla",
         category: "Complementos",
         categorySlug: "complementos",
-        description: "Pétalos de Cebolla Medianos ",
+        description: "Pétalos de Cebolla Medianos",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/ddb29fcc28b34493843d36f9c9f4377748a02fa8-2000x1333.png",
+        ingredients: ["Cebolla", "Harina de trigo", "Huevo", "Especias", "Aceite vegetal"],
         nutrition: { peso: 111, kj: 1624, kcal: 391, grasas: 30.5, saturadas: 3.5, hidratos: 24.4, azucares: 6.6, fibra: 1.2, proteinas: 4.6, sal: 1.2, sodio: 480 },
-        allergens: { huevos: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "complementos-louisiana-cheese-balls-2-piezas",
@@ -724,8 +714,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "complementos",
         description: "Cheese Balls rellenas de deliciosos queso cheddar.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/24b0d40709671df4f1981839b686bf60913e88bd-2000x1333.png",
+        ingredients: ["Queso cheddar", "Harina de trigo", "Pan rallado", "Aceite vegetal"],
         nutrition: { peso: 38, kj: 556, kcal: 133, grasas: 7.7, saturadas: 3.4, hidratos: 10.3, azucares: 0.4, fibra: 0.5, proteinas: 5.9, sal: 0.6, sodio: 242 },
-        allergens: { gluten: "contiene" },
       },
       {
         id: "complementos-louisiana-cheese-balls-3-piezas",
@@ -734,8 +724,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "complementos",
         description: "3 Louisiana Cheese Balls",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/092d8e5bba085604eec8e7ea4f73e38a8779b8d4-2000x1333.png",
+        ingredients: ["Queso cheddar", "Harina de trigo", "Pan rallado", "Aceite vegetal"],
         nutrition: { peso: 57, kj: 834, kcal: 200, grasas: 11.5, saturadas: 5.1, hidratos: 15.4, azucares: 0.6, fibra: 0.7, proteinas: 8.8, sal: 0.9, sodio: 364 },
-        allergens: { gluten: "contiene" },
       },
       {
         id: "complementos-louisiana-cheese-balls-4-piezas",
@@ -744,8 +734,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "complementos",
         description: "Bolitas crujientes rellenas de queso Cheddar",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/f2f1658fad0e39bf7b42bbd3d45581fd9ffa6ad9-2000x1333.png",
+        ingredients: ["Queso cheddar", "Harina de trigo", "Pan rallado", "Aceite vegetal"],
         nutrition: { peso: 76, kj: 1113, kcal: 266, grasas: 15.4, saturadas: 6.8, hidratos: 20.5, azucares: 0.8, fibra: 1.0, proteinas: 11.8, sal: 1.2, sodio: 485 },
-        allergens: { gluten: "contiene" },
       },
       {
         id: "complementos-louisiana-cheese-balls-8-piezas",
@@ -754,8 +744,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "complementos",
         description: "Bolitas crujientes rellenas de queso Cheddar",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/6048c7dd14adde1aeb12836a88eec62d3019cf77-870x554.png",
+        ingredients: ["Queso cheddar", "Harina de trigo", "Pan rallado", "Aceite vegetal"],
         nutrition: { peso: 152, kj: 2225, kcal: 532, grasas: 30.7, saturadas: 13.7, hidratos: 41.0, azucares: 1.7, fibra: 2.0, proteinas: 23.6, sal: 2.5, sodio: 971 },
-        allergens: { gluten: "contiene" },
       },
     ],
   },
@@ -763,6 +753,7 @@ export const CATEGORIES: Category[] = [
     name: "Ensaladas",
     slug: "ensaladas",
     blurb: "Opciones frescas, con y sin pollo.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/dd77e9af6d9ec02219ea0a35748779365f399d04-2000x1333.png",
     items: [
       {
         id: "ensaladas-green-salad",
@@ -771,8 +762,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "ensaladas",
         description: "Lechuga iceberg, queso cheddar, tiras de bacon y cebolla crujiente con salsa César",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/dd77e9af6d9ec02219ea0a35748779365f399d04-2000x1333.png",
+        ingredients: [],
         nutrition: { peso: 93, kj: 236, kcal: 56, grasas: 3.7, saturadas: 1.4, hidratos: 5.1, azucares: 2.8, fibra: 1.4, proteinas: 1.1, sal: 0.3, sodio: 120 },
-        allergens: { gluten: "contiene" },
       },
       {
         id: "ensaladas-ensalada-caesar-crujiente",
@@ -781,8 +772,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "ensaladas",
         description: null,
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/dd77e9af6d9ec02219ea0a35748779365f399d04-2000x1333.png",
+        ingredients: ["Lechuga iceberg", "Pollo crujiente", "Queso cheddar", "Bacon", "Cebolla crujiente", "Salsa César"],
         nutrition: { peso: 238, kj: 1921, kcal: 459, grasas: 26.7, saturadas: 10.9, hidratos: 22.8, azucares: 3.8, fibra: 2.5, proteinas: 31.6, sal: 3.2, sodio: 1280 },
-        allergens: { leche: "contiene", huevos: "contiene", pescado: "contiene", soja: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
       {
         id: "ensaladas-ensalada-caesar-grill",
@@ -791,15 +782,16 @@ export const CATEGORIES: Category[] = [
         categorySlug: "ensaladas",
         description: "Lechuga iceberg, queso cheddar, tiras de bacon y cebolla crujiente con salsa César y filete de pechuga de pollo a la plancha. Fresca y crujiente con toque cremoso; ideal como opción ligera.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/69aad00e09699ec55bf84ff9cf5063c315f2e769-2000x1333.png",
+        ingredients: ["Lechuga iceberg", "Filete de pollo a la plancha", "Queso cheddar", "Bacon", "Cebolla crujiente", "Salsa César"],
         nutrition: { peso: 211, kj: 1339, kcal: 319, grasas: 17.6, saturadas: 9.3, hidratos: 16.1, azucares: 3.6, fibra: 2.3, proteinas: 24.4, sal: 2.5, sodio: 1000 },
-        allergens: { leche: "contiene", huevos: "contiene", pescado: "contiene", soja: "contiene", gluten: "contiene", mostaza: "contiene" },
       },
     ],
   },
   {
     name: "Postres",
     slug: "postres",
-    blurb: "Helados, shakes y dulces.",
+    blurb: "Helados, shakes, brownies y tarta de queso.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/ecc5075cf36e46b780bc7c0044bc00db1d1782cc-2000x1333.png",
     items: [
       {
         id: "postres-cono-helado",
@@ -808,8 +800,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Crujiente Cono de barquillo relleno de helado. La combinación perfecta de textura y sabor para darte un capricho a cualquier hora.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/25b0d2ff297ddee3f26eff3fd6832e90a106f35c-2000x1333.png",
+        ingredients: ["Helado de vainilla", "Cono de barquillo"],
         nutrition: { peso: 72, kj: 528, kcal: 126, grasas: 2.6, saturadas: 1.5, hidratos: 23.1, azucares: 16.1, fibra: 0.3, proteinas: 2.6, sal: 0.2, sodio: 80 },
-        allergens: { leche: "contiene", gluten: "contiene" },
       },
       {
         id: "postres-popeyes-ice-chocolate",
@@ -818,18 +810,18 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Helado coronado con sirope de chocolate",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/e9e32d3262c8c575a956a9c486ee0c5dc2a14b62-2000x1333.png",
+        ingredients: ["Helado de vainilla", "Sirope de chocolate"],
         nutrition: { peso: 160, kj: 1082, kcal: 259, grasas: 7.0, saturadas: 5.1, hidratos: 41.2, azucares: 36.6, fibra: 0.5, proteinas: 4.2, sal: 0.2, sodio: 215.6 },
-        allergens: { leche: "contiene" },
       },
       {
         id: "postres-mini-popeyes-ice-chocolate",
         name: "Mini Popeyes Ice Chocolate",
         category: "Postres",
         categorySlug: "postres",
-        description: "-",
+        description: null,
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/50e691e4925526963b90078bc703b68614e057c0-2000x1333.png",
+        ingredients: ["Helado de vainilla", "Sirope de chocolate"],
         nutrition: { peso: 60, kj: 432, kcal: 103, grasas: 2.8, saturadas: 2.1, hidratos: 16.2, azucares: 14.3, fibra: 0.2, proteinas: 1.6, sal: 0.1, sodio: 79.8 },
-        allergens: { leche: "contiene" },
       },
       {
         id: "postres-popeyes-ice-caramelo",
@@ -838,18 +830,18 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Helado coronado con sirope de caramelo",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/c04317fcc7b0df14211761f768412f9543fb07f7-2000x1333.png",
+        ingredients: ["Helado de vainilla", "Sirope de caramelo"],
         nutrition: { peso: 160, kj: 988, kcal: 236, grasas: 5.0, saturadas: 3.3, hidratos: 44.2, azucares: 37.8, fibra: 0.0, proteinas: 3.8, sal: 0.2, sodio: 219.8 },
-        allergens: { leche: "contiene" },
       },
       {
         id: "postres-mini-popeyes-ice-caramelo",
         name: "Mini Popeyes Ice Caramelo",
         category: "Postres",
         categorySlug: "postres",
-        description: "-",
+        description: null,
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/d855150c108ea862f7c37ff147f9a5c188e0d5d0-2000x1333.png",
+        ingredients: ["Helado de vainilla", "Sirope de caramelo"],
         nutrition: { peso: 60, kj: 385, kcal: 92, grasas: 1.8, saturadas: 1.2, hidratos: 17.7, azucares: 14.9, fibra: 0.0, proteinas: 1.4, sal: 0.1, sodio: 81.9 },
-        allergens: { leche: "contiene" },
       },
       {
         id: "postres-popeyes-ice-chocolate-blanco",
@@ -858,28 +850,28 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Helado coronado con sirope de chocolate blanco",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/2b21ccc2a017eb7893500180be4387d449c4d57f-2000x1333.png",
+        ingredients: ["Helado de vainilla", "Sirope de chocolate blanco"],
         nutrition: { peso: 160, kj: 1249, kcal: 299, grasas: 12.4, saturadas: 4.8, hidratos: 42.4, azucares: 39.6, fibra: 0.0, proteinas: 4.5, sal: 0.1, sodio: 196 },
-        allergens: { leche: "contiene", frutosCascara: "puede" },
       },
       {
         id: "postres-mini-popeyes-ice-chocolate-blanco",
         name: "Mini Popeyes Ice Chocolate Blanco",
         category: "Postres",
         categorySlug: "postres",
-        description: "Mini Popeyes Ice Chocolate Blanco-",
+        description: null,
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/4aae3d3262efa763521a1f88b08404a9f98723ca-2000x1333.png",
+        ingredients: ["Helado de vainilla", "Sirope de chocolate blanco"],
         nutrition: { peso: 60, kj: 516, kcal: 123, grasas: 5.5, saturadas: 2.0, hidratos: 16.8, azucares: 15.8, fibra: 0.0, proteinas: 1.7, sal: 0.1, sodio: 70 },
-        allergens: { leche: "contiene", frutosCascara: "puede" },
       },
       {
         id: "postres-pop-cream-oreo-caramelo",
         name: "Pop Cream Oreo Caramelo",
         category: "Postres",
         categorySlug: "postres",
-        description: "Helado de vainilla con OREO®, sirope de caramelo y más galleta OREO® por encima. Hazte el favor y pide 2, esto no se comparte.\n",
+        description: "Helado de vainilla con OREO®, sirope de caramelo y más galleta OREO® por encima. Hazte el favor y pide 2, esto no se comparte.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/4a954ebb5b99794c99385f3ec8490c859d0cb52b-2000x1333.png",
+        ingredients: ["Helado de vainilla", "Galleta OREO®", "Sirope de caramelo"],
         nutrition: { peso: 185, kj: 1295, kcal: 310, grasas: 8.6, saturadas: 5.8, hidratos: 50.0, azucares: 41.3, fibra: 0.7, proteinas: 5.3, sal: 1.0, sodio: 400 },
-        allergens: { leche: "contiene", soja: "contiene", gluten: "contiene" },
       },
       {
         id: "postres-pop-cream-oreo-chocolate",
@@ -888,8 +880,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Esto no es un postre, es una locura: cremoso helado de vainilla, trozos de Oreo y un sirope de cheesecake que sabe a gloria.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/06506566b5963429a0f9f7acb22afde86c2ca914-2000x1333.png",
+        ingredients: ["Helado de vainilla", "Galleta OREO®", "Sirope de chocolate"],
         nutrition: { peso: 185, kj: 1224, kcal: 293, grasas: 7.0, saturadas: 4.4, hidratos: 52.2, azucares: 42.2, fibra: 0.4, proteinas: 5.1, sal: 1.0, sodio: 400 },
-        allergens: { leche: "contiene", soja: "contiene", gluten: "contiene" },
       },
       {
         id: "postres-pop-cream-kit-kat",
@@ -898,8 +890,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Helado con base de KitKat y sirope de chocolate y coronado con más toppings de KitKat",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/70fb56dfe0135b6a3f5f4cfbdc8a0661d5640a4b-2000x1333.png",
+        ingredients: ["Helado de vainilla", "KitKat®", "Sirope de chocolate"],
         nutrition: { peso: 87, kj: 1081, kcal: 261, grasas: 0.8, saturadas: 3.6, hidratos: 5.1, azucares: 32.7, fibra: 28.8, proteinas: 12.6, sal: 0.0, sodio: 71.2 },
-        allergens: { leche: "contiene" },
       },
       {
         id: "postres-oreo-shake",
@@ -908,8 +900,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Batido con base de galleta Oreo, coronado con nata y más trocitos de galleta Oreo",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/123cde0617a1ef79f6d247360e9636403b765b30-2000x1333.png",
+        ingredients: ["Leche", "Helado de vainilla", "Galleta OREO®", "Nata"],
         nutrition: { peso: 404, kj: 2792, kcal: 668, grasas: 22.7, saturadas: 14.5, hidratos: 101.5, azucares: 81.0, fibra: 1.3, proteinas: 12.2, sal: 2.5, sodio: 1000 },
-        allergens: { leche: "contiene", soja: "contiene", gluten: "contiene" },
       },
       {
         id: "postres-oreo-chocolate-shake",
@@ -918,8 +910,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Batido de chocolate con base de galleta Oreo, coronado con nata y más trocitos de galleta Oreo",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/6541727e08179509b19eddf60647a936a4e1110a-2000x1333.png",
+        ingredients: ["Leche", "Helado de vainilla", "Galleta OREO®", "Sirope de chocolate", "Nata"],
         nutrition: { peso: 434, kj: 3273, kcal: 782, grasas: 25.8, saturadas: 17.2, hidratos: 117.1, azucares: 93.9, fibra: 2.0, proteinas: 12.8, sal: 2.6, sodio: 1040 },
-        allergens: { leche: "contiene", soja: "contiene", gluten: "contiene" },
       },
       {
         id: "postres-kit-kat-shake",
@@ -928,8 +920,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Batido de KitKat",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/377fea15f6089580504c754cd71b56cb9c4184d5-2000x1333.png",
+        ingredients: ["Leche", "Helado de vainilla", "KitKat®", "Nata"],
         nutrition: { peso: 382, kj: 3118, kcal: 746, grasas: 2.5, saturadas: 12.9, hidratos: 14.7, azucares: 106.5, fibra: 95.3, proteinas: 29.0, sal: 0.2, sodio: 455.5 },
-        allergens: { leche: "contiene" },
       },
       {
         id: "postres-b-j-chocolate-fudge-brownie",
@@ -938,8 +930,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Helado de chocolate con trozos de brownie (100 ml). Cremosidad intensa en formato individual; perfecto para un antojo rápido.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/3a5eb23b1a624c5c4593fa6b1f43c1312dda22fa-2000x1333.png",
+        ingredients: ["Helado de chocolate", "Trozos de brownie"],
         nutrition: { peso: 429, kj: 4398, kcal: 1051, grasas: 55.8, saturadas: 34.4, hidratos: 124.4, azucares: 115.8, fibra: 8.3, proteinas: 18.0, sal: 0.8, sodio: 320 },
-        allergens: { leche: "contiene", huevos: "contiene", soja: "contiene", gluten: "contiene" },
       },
       {
         id: "postres-b-j-cookie-dough-vainilla",
@@ -948,8 +940,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Helado de vainilla con trocitos de galleta y chocolate (100 ml). Cremoso y goloso; ideal para un capricho individual.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/ecc5075cf36e46b780bc7c0044bc00db1d1782cc-2000x1333.png",
+        ingredients: ["Helado de vainilla", "Masa de galleta", "Chocolate"],
         nutrition: { peso: 425, kj: 4979, kcal: 1190, grasas: 63.8, saturadas: 38.3, hidratos: 136.0, azucares: 106.3, fibra: 0.0, proteinas: 17.0, sal: 0.6, sodio: 240 },
-        allergens: { leche: "contiene", huevos: "contiene", soja: "contiene", gluten: "contiene" },
       },
       {
         id: "postres-ice-brioche",
@@ -958,8 +950,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Pan brioche caliente con helado y tu sirope favorito. Contraste caliente–frío, tierno y cremoso; perfecto como postre para compartir.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/7b39be15c8df23390c0409bc4d75828dad87300c-2000x1333.png",
+        ingredients: ["Pan brioche", "Helado de vainilla", "Sirope"],
         nutrition: { peso: 128, kj: 1613, kcal: 387, grasas: 14.7, saturadas: 3.1, hidratos: 53.3, azucares: 20.1, fibra: 2.9, proteinas: 9.2, sal: 1.0, sodio: 400 },
-        allergens: { leche: "contiene", soja: "contiene", gluten: "contiene" },
       },
       {
         id: "postres-bebedino",
@@ -968,8 +960,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Bebedino fresa",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/74071df822edee1e3ae6d3cffcd9df4c30d8dfc6-1333x1333.png",
+        ingredients: ["Leche fermentada", "Fresa", "Azúcar"],
         nutrition: { peso: 100, kj: 362, kcal: 86, grasas: 2.2, saturadas: 1.4, hidratos: 13.7, azucares: 13.5, fibra: 0.0, proteinas: 2.7, sal: 0.2, sodio: 80 },
-        allergens: { leche: "contiene", frutosCascara: "puede", gluten: "puede", sesamo: "puede" },
       },
       {
         id: "postres-cheesecake",
@@ -978,15 +970,16 @@ export const CATEGORIES: Category[] = [
         categorySlug: "postres",
         description: "Tarta de queso cremosa; añade tu sirope favorito (chocolate, chocolate blanco o caramelo). Suave y golosa; ideal para rematar la comida.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/e48fef947ada64202b205e181f73d1facfa27f86-2000x1333.png",
+        ingredients: ["Queso crema", "Base de galleta", "Nata", "Azúcar"],
         nutrition: { peso: 100, kj: 1431, kcal: 342, grasas: 18.2, saturadas: 9.4, hidratos: 38, azucares: 21.8, fibra: 3.6, proteinas: 5.4, sal: 0.7, sodio: null },
-        allergens: { leche: "contiene", huevos: "contiene", pescado: "puede", frutosCascara: "puede", soja: "puede", gluten: "contiene" },
       },
     ],
   },
   {
     name: "Salsas",
     slug: "salsas",
-    blurb: "Dips para mojar.",
+    blurb: "Los dips para mojar.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/03f9bcdab9d588d1261683a55b77b224799893d1-2000x1333.png",
     items: [
       {
         id: "salsas-dip-buffalo",
@@ -995,18 +988,18 @@ export const CATEGORIES: Category[] = [
         categorySlug: "salsas",
         description: "La salsa para los fans del picante",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/e1b47162b677d0dc9d457da12ba0f79539d38243-2000x1333.png",
+        ingredients: ["Salsa buffalo", "Pimienta de cayena", "Mantequilla", "Vinagre"],
         nutrition: { peso: 25, kj: 88, kcal: 21, grasas: 1.3, saturadas: 0.1, hidratos: 2, azucares: 0.8, fibra: 0.2, proteinas: 0.1, sal: 0.9, sodio: 360 },
-        allergens: { leche: "contiene" },
       },
       {
         id: "salsas-dip-miel-y-mostaza",
         name: "Dip Miel y Mostaza",
         category: "Salsas",
         categorySlug: "salsas",
-        description: "Mostaza con miel de intensidad suave; perfecta para Real Nuggets, tiras y ensaladas.\n",
+        description: "Mostaza con miel de intensidad suave; perfecta para Real Nuggets, tiras y ensaladas.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/78611a29b7b64383ec4aa8f9d05aa5f1add7523d-2000x1333.png",
+        ingredients: ["Miel", "Mostaza", "Vinagre"],
         nutrition: { peso: 25, kj: 269, kcal: 64, grasas: 4.6, saturadas: 0.3, hidratos: 5.6, azucares: 3.2, fibra: 0.1, proteinas: 0.02, sal: 0.6, sodio: 217 },
-        allergens: {  },
       },
       {
         id: "salsas-dip-mardi-gras",
@@ -1015,8 +1008,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "salsas",
         description: "Salsa de mostaza al estilo Louisiana",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/2e08a2829da9c7706681f73d313d70833db6b0bf-2000x1333.png",
+        ingredients: ["Mostaza", "Huevo", "Especias Louisiana"],
         nutrition: { peso: 25, kj: 336, kcal: 80, grasas: 6.8, saturadas: 0.5, hidratos: 4.1, azucares: 3.1, fibra: 0.2, proteinas: 0.5, sal: 0.4, sodio: 160 },
-        allergens: { huevos: "contiene", mostaza: "contiene" },
       },
       {
         id: "salsas-dip-bbq",
@@ -1025,8 +1018,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "salsas",
         description: "Nuestra clásica salsa BBQ",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/f74d01643dc9cc6f5c43df5a1ab869c8b5ef6eb5-2000x1333.png",
+        ingredients: ["Tomate", "Azúcar", "Vinagre", "Especias ahumadas"],
         nutrition: { peso: 25, kj: 155, kcal: 37, grasas: 0.1, saturadas: 0.1, hidratos: 8.4, azucares: 7.0, fibra: 0.2, proteinas: 0.2, sal: 0.7, sodio: 280 },
-        allergens: { soja: "contiene", gluten: "contiene" },
       },
       {
         id: "salsas-dip-mayonesa",
@@ -1035,8 +1028,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "salsas",
         description: "Mayonesa",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/03f9bcdab9d588d1261683a55b77b224799893d1-2000x1333.png",
+        ingredients: ["Huevo", "Aceite vegetal", "Vinagre"],
         nutrition: { peso: 25, kj: 658, kcal: 160, grasas: 3.7, saturadas: 0, hidratos: 0.9, azucares: 0.8, fibra: 17.3, proteinas: 0.3, sal: 0.3, sodio: 120 },
-        allergens: { huevos: "contiene", mostaza: "contiene" },
       },
       {
         id: "salsas-dip-queso",
@@ -1045,8 +1038,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "salsas",
         description: "Nuestra clásica salsa BBQ",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/503f858d81acbb2fbe7acf915ed0a45805cd2168-2000x1333.png",
+        ingredients: ["Queso cheddar", "Leche", "Almidón"],
         nutrition: { peso: 20, kj: 182, kcal: 43, grasas: 3.4, saturadas: 2.2, hidratos: 1.1, azucares: 0.8, fibra: 0.3, proteinas: 1.9, sal: 0.5, sodio: 182 },
-        allergens: {  },
       },
       {
         id: "salsas-dip-sweet-chilli",
@@ -1055,8 +1048,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "salsas",
         description: "Salsa Sweet Chilli",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/4a69a2449b783252f8fb2f5ea8a51912def05cf3-2000x1333.png",
+        ingredients: ["Guindilla", "Azúcar", "Vinagre"],
         nutrition: { peso: 23, kj: 155, kcal: 37, grasas: 0, saturadas: 0, hidratos: 8.5, azucares: 7.7, fibra: 0.3, proteinas: 0.2, sal: 0.6, sodio: 225 },
-        allergens: {  },
       },
       {
         id: "salsas-dip-creole",
@@ -1065,8 +1058,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "salsas",
         description: "Vaso pequeño de salsa Creole para los amantes del picante.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/3663f0e30194338c8d5c1775ae829b660c002a0c-2000x1333.png",
+        ingredients: ["Mayonesa", "Especias criollas", "Pimentón"],
         nutrition: { peso: 25, kj: 462, kcal: 111, grasas: 11.2, saturadas: 0.8, hidratos: 1.8, azucares: 1.2, fibra: 0.1, proteinas: 0.2, sal: 0.5, sodio: 200 },
-        allergens: { huevos: "contiene", mostaza: "contiene" },
       },
       {
         id: "salsas-dip-ranchera",
@@ -1075,8 +1068,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "salsas",
         description: "Salsa Ranchera",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/735af806325229813fd333c6f6143f64f8782d1b-2000x1333.png",
+        ingredients: ["Suero de leche", "Huevo", "Ajo", "Hierbas"],
         nutrition: { peso: 25, kj: 338, kcal: 81, grasas: 7.6, saturadas: 0.6, hidratos: 2.3, azucares: 1.4, fibra: 0.1, proteinas: 0.2, sal: 0.7, sodio: 280 },
-        allergens: { leche: "contiene", huevos: "contiene", mostaza: "contiene" },
       },
       {
         id: "salsas-bolsita-ketchup",
@@ -1085,15 +1078,16 @@ export const CATEGORIES: Category[] = [
         categorySlug: "salsas",
         description: null,
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/6b06e2fea68bf5c345b4f3dd3370b6b57ad86ce5-2000x1333.png",
+        ingredients: ["Tomate", "Azúcar", "Vinagre", "Apio"],
         nutrition: { peso: 10, kj: 44, kcal: 10, grasas: 0, saturadas: 0, hidratos: 2.4, azucares: 2.4, fibra: 0, proteinas: 0.1, sal: 0.2, sodio: 80 },
-        allergens: { apio: "contiene" },
       },
     ],
   },
   {
     name: "Bebidas",
     slug: "bebidas",
-    blurb: "Refrescos, agua y cerveza.",
+    blurb: "Refrescos, limonada y cerveza.",
+    image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/c0f7ef114f31e6d46ebd8a4bd4b382fe5ec56dcd-2000x1333.png",
     items: [
       {
         id: "bebidas-coca-cola-475-ml",
@@ -1102,8 +1096,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "bebidas",
         description: "Coca-Cola",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/e3e93f26d8308e34e96a52d031496652172aa2af-2000x1333.png",
+        ingredients: ["Agua carbonatada", "Azúcar", "Extracto de cola", "Cafeína"],
         nutrition: { peso: 475, kj: 855, kcal: 200, grasas: null, saturadas: null, hidratos: 50.4, azucares: 50.3, fibra: 0.0, proteinas: null, sal: 0.0, sodio: 0 },
-        allergens: {  },
       },
       {
         id: "bebidas-coca-cola-zero-475-ml",
@@ -1112,8 +1106,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "bebidas",
         description: "Coca-Cola Zero",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/4fb5f0ba23c3b4442a2c0da989b2da722ec8ffb8-2000x1333.png",
+        ingredients: ["Agua carbonatada", "Edulcorantes", "Extracto de cola", "Cafeína"],
         nutrition: { peso: 475, kj: 5, kcal: 1, grasas: null, saturadas: null, hidratos: 0.5, azucares: 0.0, fibra: 0.0, proteinas: 0.0, sal: 0.4, sodio: 160 },
-        allergens: {  },
       },
       {
         id: "bebidas-coca-cola-zero-zero-475-ml",
@@ -1122,8 +1116,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "bebidas",
         description: "Coca-Cola Zero Zero",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/d330cd5e0e1d2a3793a754fdc38da2f38fdea66d-2000x1333.png",
+        ingredients: ["Agua carbonatada", "Edulcorantes", "Extracto de cola"],
         nutrition: { peso: 475, kj: 17, kcal: 1, grasas: null, saturadas: null, hidratos: 0.0, azucares: 0.0, fibra: 0.0, proteinas: null, sal: 0.1, sodio: 40 },
-        allergens: {  },
       },
       {
         id: "bebidas-fuze-tea-sin-azucar-475-ml",
@@ -1132,8 +1126,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "bebidas",
         description: "Fuze Tea",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/578029d60f6ee5e52387373e93010f70c15b7db1-2000x1333.png",
+        ingredients: ["Agua", "Extracto de té negro", "Edulcorantes", "Aroma de limón"],
         nutrition: { peso: 475, kj: 24, kcal: 5, grasas: null, saturadas: null, hidratos: 0.0, azucares: 0.0, fibra: 0.0, proteinas: null, sal: 0.2, sodio: 80 },
-        allergens: {  },
       },
       {
         id: "bebidas-sprite-475-ml",
@@ -1142,8 +1136,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "bebidas",
         description: "Refresco de lima-limón con gas; ligero y muy refrescante.",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/c0f7ef114f31e6d46ebd8a4bd4b382fe5ec56dcd-2000x1333.png",
+        ingredients: ["Agua carbonatada", "Azúcar", "Zumo de limón", "Zumo de lima"],
         nutrition: { peso: 475, kj: 884, kcal: 209, grasas: null, saturadas: null, hidratos: 50.8, azucares: 50.8, fibra: 0.0, proteinas: null, sal: 0.0, sodio: 0 },
-        allergens: {  },
       },
       {
         id: "bebidas-fanta-limon-zero-475-ml",
@@ -1152,8 +1146,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "bebidas",
         description: "Fanta de Limón",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/25d4056c989f6ca320ffe3928cfc903d003c1df0-2000x1333.png",
+        ingredients: ["Agua carbonatada", "Zumo de limón", "Edulcorantes"],
         nutrition: { peso: 475, kj: 29, kcal: 7, grasas: null, saturadas: null, hidratos: 0.0, azucares: 0.0, fibra: 0.0, proteinas: null, sal: 0.2, sodio: 80 },
-        allergens: {  },
       },
       {
         id: "bebidas-fanta-naranja-zero-475-ml",
@@ -1162,8 +1156,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "bebidas",
         description: "Fanta de Naranja",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/ec556431163d791cde741268cd69a513e368ec09-2000x1333.png",
+        ingredients: ["Agua carbonatada", "Zumo de naranja", "Edulcorantes"],
         nutrition: { peso: 475, kj: 29, kcal: 7, grasas: null, saturadas: null, hidratos: 0.0, azucares: 0.0, fibra: 0.0, proteinas: null, sal: 0.2, sodio: 80 },
-        allergens: {  },
       },
       {
         id: "bebidas-aquarius-zero-475-ml",
@@ -1172,8 +1166,8 @@ export const CATEGORIES: Category[] = [
         categorySlug: "bebidas",
         description: "Aquarius",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/4ce9d08404cf8c50bdcea631c43c5d9b039a505d-2000x1333.png",
+        ingredients: ["Agua", "Sales minerales", "Zumo de limón", "Edulcorantes"],
         nutrition: { peso: 475, kj: 24, kcal: 5, grasas: null, saturadas: null, hidratos: 0.0, azucares: 0.0, fibra: 0.0, proteinas: null, sal: 0.3, sodio: 120 },
-        allergens: {  },
       },
       {
         id: "bebidas-limonada",
@@ -1182,24 +1176,28 @@ export const CATEGORIES: Category[] = [
         categorySlug: "bebidas",
         description: "Limonada Mediana",
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/e16a95973ef89106a1a35cca8e6a0dfd3047fba8-2000x1333.png",
+        ingredients: ["Agua", "Zumo de limón", "Azúcar"],
         nutrition: { peso: null, kj: null, kcal: null, grasas: null, saturadas: null, hidratos: null, azucares: null, fibra: null, proteinas: null, sal: null, sodio: null },
-        allergens: {  },
       },
       {
         id: "bebidas-cerveza",
         name: "Cerveza",
         category: "Bebidas",
         categorySlug: "bebidas",
-        description: "Cerveza",
+        description: null,
         image: "https://cdn.sanity.io/images/czqk28jt/prod_plk_es/08b7b6761a6a42d4140f227988b45fd38c6854a3-2000x1333.png",
+        ingredients: ["Agua", "Malta de cebada", "Lúpulo", "Levadura"],
         nutrition: { peso: 400, kj: 832, kcal: 200, grasas: null, saturadas: null, hidratos: 16.8, azucares: 2.0, fibra: 0.0, proteinas: 1.6, sal: 0.0, sodio: 0 },
-        allergens: { gluten: "contiene" },
       },
     ],
   },
 ];
 
 export const ALL_ITEMS: Item[] = CATEGORIES.flatMap((c) => c.items);
+
+export function getCategory(slug: string): Category | undefined {
+  return CATEGORIES.find((c) => c.slug === slug);
+}
 
 export function getItem(id: string): Item | undefined {
   return ALL_ITEMS.find((i) => i.id === id);
