@@ -75,7 +75,7 @@ export default async function CategoryPage({
 }
 
 function ItemCard({ item, priority }: { item: Item; priority: boolean }) {
-  const { kcal, proteinas, grasas } = item.nutrition;
+  const { kcal, proteinas, saturadas } = item.nutrition;
 
   return (
     <li>
@@ -111,7 +111,7 @@ function ItemCard({ item, priority }: { item: Item; priority: boolean }) {
             </p>
             <p className="tnum mt-2.5 flex flex-wrap gap-x-3 gap-y-1 text-[0.78rem] text-ink-faint">
               <span>{fixed(proteinas)} g proteína</span>
-              <span>{fixed(grasas)} g grasa</span>
+              <span>{fixed(saturadas)} g saturadas</span>
             </p>
           </>
         ) : (
