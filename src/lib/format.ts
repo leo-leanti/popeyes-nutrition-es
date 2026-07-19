@@ -54,15 +54,6 @@ export function imageUrl(url: string, width: number): string {
   return `${url}?w=${width}&fit=max&auto=format`;
 }
 
-/** Calorie range across a category, for the index cards. */
-export function kcalRange(items: Item[]): [number, number] | null {
-  const values = items
-    .map((i) => i.nutrition.kcal)
-    .filter((v): v is number => v !== null);
-  if (values.length === 0) return null;
-  return [Math.min(...values), Math.max(...values)];
-}
-
 /**
  * The published sheet contains a handful of internally impossible rows
  * (saturated fat above total fat, sugars above carbohydrates, kJ and kcal that

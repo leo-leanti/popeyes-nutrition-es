@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ALL_ITEMS, CATEGORIES } from "@/data/menu";
-import { imageUrl, int, kcalRange } from "@/lib/format";
+import { imageUrl } from "@/lib/format";
 
 export default function Home() {
   return (
@@ -21,7 +21,6 @@ export default function Home() {
 
       <section className="grid grid-cols-2 gap-3 pb-8 sm:gap-4 lg:grid-cols-3">
         {CATEGORIES.map((category, index) => {
-          const range = kcalRange(category.items);
           return (
             <Link
               key={category.slug}
@@ -49,15 +48,6 @@ export default function Home() {
                   </h2>
                   <p className="mt-1.5 text-[0.78rem] leading-snug text-ink-faint sm:text-[0.85rem]">
                     {category.items.length} productos
-                    {range ? (
-                      <>
-                        {" · "}
-                        <span className="tnum">
-                          {int(range[0])}–{int(range[1])}
-                        </span>{" "}
-                        kcal
-                      </>
-                    ) : null}
                   </p>
                 </div>
                 <span
