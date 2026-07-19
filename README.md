@@ -1,10 +1,10 @@
 # Valores nutricionales · Popeyes España
 
 A browsable nutrition reference for the full Popeyes España menu: 105 products
-across 13 categories, with calories, macros, salt and allergens for each one.
+across 13 categories, with calories, macros and main ingredients for each one.
 
 The source data lives in a single A3 PDF that is essentially unreadable on a
-phone. This turns it into something you can search, sort and compare.
+phone. This turns it into something you can actually browse.
 
 ## Structure
 
